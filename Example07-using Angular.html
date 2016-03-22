@@ -1,0 +1,23 @@
+<!--First Angularjs. Model is here by default.  -->
+<!-- Angular uses a bootstrapping process where it compiles the DOM. This allows the DOM to
+    be given new functionality. The ng-app directive I think is the directive the causes it
+    to be compiled thereby creating an Angular API-->
+
+<!--the ng-app makes this an angular directive. -->
+<html ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+</head>
+<body>
+<!--This shows two way data binding -->
+Name:<input ng-model="name" type="text"/><br>
+Name:<input ng-model="name" type="text"/><br>
+Name:<input ng-model="name" type="text"/><br>
+
+
+Hello {{name}}
+</body>
+</html>
+

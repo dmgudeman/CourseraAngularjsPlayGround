@@ -1,0 +1,39 @@
+<!--with backbone you can listen for changes on properties of the object-->
+<!--so what differentiates a Backbpne Model from a simple Javascript Object -->
+<!--is that you can listen for changes with a Backbone model -->
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DIY One-way Data Binding wiht jQuery</title>
+    <script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
+    <script src="//jashkenas.github.io/underscore/underscore-min.js"></script>
+    <script src="//jashkenas.github.io/backbone/backbone-min.js"></script>
+
+</head>
+<body>
+Name:<input id="textInput" type="text"/>
+Hello <span id="nameSpan"></span>
+
+<script>
+    //Model
+    var model =new Backbone.Model({
+        name: ''
+    });
+
+    //View - if you used only change with no change:name, it would fire if there was a change to any portion of the
+    //Model named model. The fact that it is specified as change:name, it will pick up on name only.
+    model.on('change:name', function() {
+        // jquery in here. The view could get the hame input from the text input but it gets it from the model
+        // and the model gets the name input given to it by the controller.  this lets the code scale more.
+        $('#nameSpan').html(model.get('name'));
+    });
+
+    // Controller
+    $('#textInput').on('keyup', function() {
+        model.set('name', $('#textInput').val());
+    });
+</script>
+</body>
+</html>
+
