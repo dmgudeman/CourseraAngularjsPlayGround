@@ -1,0 +1,40 @@
+<html ng-app = "nameApp">
+<head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+        <script>
+
+            var nameApp = angular.module('nameApp', []);
+
+             nameApp.controller('NameCtrl', function($scope){
+                $scope.names = ['Larry', 'Curly', 'Moe'];
+
+                // adds the addName function to the scope to be shared with the template form.
+                $scope.addName = function() {
+                $scope.name.push($scope.enteredName);
+                }
+            });
+
+        </script>
+    </head>
+
+    <body ng-controller="NameCtrl">
+        <ul>
+            <li ng-repeat="name in names">{{name}}</li>
+        </ul>
+
+        // The ng-submit directive says to instead of refreshing the entire form or page stay on this page and fire the
+        // function addName().
+        <form ng-submit="addName()">
+            //This adds a text box and attaches it to ng-model named "enteredName". When you change the text box
+            // it changes the ng-model scope.
+            <input type="text" ng-model="enteredName">
+
+            // now when you press submit thanks to the ng-submit directive it fires the addName function and pushes
+            // the text onto the names array.
+            <input type="submit" value="add">
+        </form>
+    </body>
+</html>
+<!--min 32:16 of presentation  https://www.youtube.com/watch?v=TRrL5j3MIvo -->

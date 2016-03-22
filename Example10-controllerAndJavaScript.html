@@ -1,0 +1,34 @@
+<!-- Introducing the ANGULAR CONTROLLER. The previous examples have been accessing the model from
+    the HTML. In order to access the angular controller from the Javascript -->
+
+
+<html ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script>
+        // angular convention to name controllers with Ctrl at the end.
+        // NameCtrl is a global function. Angular gives you the javascript object called $scope. The $scope object
+        // is the model.
+
+        // So this is a global controller and angular looks for this as a last resort. But this pollutes the
+        // global namespace and more specificity is needed.
+        function NameCtrl($scope){
+            // so you can make up properties on the fly without ever declaring them before.
+            $scope.firstname = 'John';
+            $scope.lastname = 'Smith';
+        }
+    </script>
+</head>
+<!-- The way angular knows what to use as a controller is in the body tag. Different portions of the page
+    can have different controllers.-->
+<body ng-controller="NameCtrl">
+
+First Name:<input ng-model="firstname" type="text"/><br>
+Last Name:<input ng-model="lastname" type="text"/><br>
+
+<!-- get it back out. Angular internally allows each of these to be changed independently.-->
+Hello {{firstname}} {{lastname}}
+</body>
+</html>

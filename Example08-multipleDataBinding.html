@@ -1,9 +1,7 @@
-<!--First Angularjs. Model is here by default.  -->
-<!-- Angular uses a bootstrapping process where it compiles the DOM. This allows the DOM to
-    be given new functionality. The ng-app directive I think is the directive the causes it
-    to be compiled thereby creating an Angular API-->
+<!-- this shows the two way data binding -->
 
-<!--the ng-app makes this an angular directive. -->
+<!-- THERE IS NO JAVASCRIPT -->
+
 <html ng-app>
 <head>
     <meta charset="utf-8">
@@ -11,15 +9,12 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
 </head>
 <body>
-<!-- This is using the ng-model DIRECTIVE on the input element. This tells input data should be bound to the
-    name property on the angular model - which is called the root scope. SO the contents of the text field
-    on the DOM that is after Name: is bound to the $scope that is shared between the html and the angular model. It
-    is like a backBone model where you can listen for changes and you can change it and the changes with
-    porpagate-->
-Name:<input ng-model="name" type="text"/>
+<!--This shows two way data binding -->
+Name:<input ng-model="name" type="text"/><br>
+Name:<input ng-model="name" type="text"/><br>
+Name:<input ng-model="name" type="text"/><br>
 
-<!-- so the double handlebars below tell the angular compiled app to update the html template to the name
-    property of the angular model. This is called data binding. It is bound to the model and the template.-->
+
 Hello {{name}}
 </body>
 </html>

@@ -1,0 +1,33 @@
+
+<html ng-app = "nameApp">
+<head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script>
+        var nameApp = angular.module('nameApp', []);
+
+        // the $watch property calls the function immediately and returns the value of lastname right then.
+        // in this case it is undefined. look at example thirteen
+        nameApp.controller('NameCtrl', function($scope){
+            $scope.firstname = 'John';
+            $scope.$watch('lastname', function(newValue, oldValue){
+                console.log('new value is ' + newValue);
+        });
+
+            // This delay takes the function ansychrounously outside of angular's scope
+            setTimeout(function () {
+            $scope.lastName = 'Smith';
+            }, 1000);
+        });
+
+    </script>
+</head>
+<body ng-controller="NameCtrl">
+
+First Name:<input ng-model="firstname" type="text"/><br>
+Last Name:<input ng-model="lastname" type="text"/><br>
+
+Hello {{firstname}} {{lastname}}
+</body>
+</html>

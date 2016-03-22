@@ -1,0 +1,31 @@
+
+<!-- This directive tells angular that for this app use the module called nameApp. You could have
+    multiple ng-app's on a page. ng-app does not have to be on a root element it could be on a
+    sub-element.-->
+<html ng-app = "nameApp">
+<head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script>
+        // create a module. the first argument is the name and the second argument is the DEPENDENCIES, in this case none.
+        var nameApp = angular.module('nameApp', []);
+
+        // Instead of calling a global function, use this API. The first argument is the name of the controller.
+        // The second argument is the function that implements it. The function is given the Sscope object
+        // to create a controller within this module you call:
+        nameApp.controller('NameCtrl', function($scope){
+            $scope.firstname = 'John';
+            $scope.lastname ='Smith';
+        });
+
+    </script>
+</head>
+<body ng-controller="NameCtrl">
+
+First Name:<input ng-model="firstname" type="text"/><br>
+Last Name:<input ng-model="lastname" type="text"/><br>
+
+Hello {{firstname}} {{lastname}}
+</body>
+</html>

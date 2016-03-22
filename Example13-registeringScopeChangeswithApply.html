@@ -1,0 +1,35 @@
+<!-- So in asynchronous land you can either use $watch to watch for changes
+     OR use apply to apply those changes after changes have occurred-->
+<html ng-app = "nameApp">
+<head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script>
+        var nameApp = angular.module('nameApp', []);
+
+        nameApp.controller('NameCtrl', function($scope){
+            $scope.firstname = 'John';
+
+            //TOGGLE THESE FUNCTIONS TO SEE EFFECTS
+            //  $scope.$watch('lastname', function(newValue, oldValue){
+            //       console.log('new value is ' + newValue);
+            // });
+
+            setTimeout(function () {
+                $scope.lastName = 'Smith';
+                //TOGGLE THESE FUNCTIONS TO SEE EFFECTS
+             //   $scope.$apply();
+            }, 1000);
+        });
+
+    </script>
+</head>
+<body ng-controller="NameCtrl">
+
+First Name:<input ng-model="firstname" type="text"/><br>
+Last Name:<input ng-model="lastname" type="text"/><br>
+
+Hello {{firstname}} {{lastname}}
+</body>
+</html>

@@ -1,0 +1,23 @@
+
+<!--This fleshes out databinding -->
+
+<!-- THERE IS NO JAVASCRIPT -->
+
+<html ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+</head>
+<body>
+<!--This shows two way data binding -->
+
+<!-- Collect the input place it into the $scope of the model -->
+First Name:<input ng-model="firstname" type="text"/><br>
+Last Name:<input ng-model="lastname" type="text"/><br>
+
+<!-- get it back out. Angular internally allows each of these to be changed independently.-->
+Hello {{firstname}} {{lastname}}
+</body>
+</html>
+
